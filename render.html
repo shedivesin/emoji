@@ -1,0 +1,92 @@
+<!doctype html>
+<meta charset=us-ascii>
+<title>Geomantic Emoji</title>
+<style>
+body{background:silver}
+canvas{width:128px;height:128px}
+</style>
+<canvas width=256 height=256></canvas>
+<canvas width=256 height=256></canvas>
+<canvas width=256 height=256></canvas>
+<canvas width=256 height=256></canvas>
+<canvas width=256 height=256></canvas>
+<canvas width=256 height=256></canvas>
+<canvas width=256 height=256></canvas>
+<canvas width=256 height=256></canvas>
+<canvas width=256 height=256></canvas>
+<canvas width=256 height=256></canvas>
+<canvas width=256 height=256></canvas>
+<canvas width=256 height=256></canvas>
+<canvas width=256 height=256></canvas>
+<canvas width=256 height=256></canvas>
+<canvas width=256 height=256></canvas>
+<canvas width=256 height=256></canvas>
+<script>
+"use strict";
+
+
+// Create a squircle
+const id = new ImageData(256, 256);
+
+for(let y = 0, i = 0; y < id.height; y++) {
+  for(let x = 0; x < id.width; x++) {
+    let c = 0;
+
+    for(let v = 0; v < 16; v++) {
+      let b = (2 * y + 0.125 * v + 0.0625) / id.height - 1;
+      b *= b;
+      b *= b;
+
+      for(let u = 0; u < 16; u++) {
+        let a = (2 * x + 0.125 * u + 0.0625) / id.width - 1;
+        a *= a;
+        a *= a;
+        if(a + b > 1) {
+          continue;
+        }
+
+        c++;
+      }
+    }
+
+    id.data[i++] = 255;
+    id.data[i++] = 255;
+    id.data[i++] = 255;
+    id.data[i++] = c;
+  }
+}
+
+
+// Draw emojis onto the canvases
+const canvases = document.getElementsByTagName("canvas");
+
+for(let i = 0; i < canvases.length; i++) {
+  const canvas = canvases[i];
+  const ctx = canvas.getContext("2d");
+
+  // Splat the squircle onto the canvas
+  ctx.putImageData(id, 0, 0);
+
+  // Draw the geomantic figure corresponding to this binary number
+  for(let j = 0; j < 4; j++) {
+    if((i >> j) & 1) {
+      ctx.fillStyle = "crimson";
+      ctx.beginPath();
+      ctx.moveTo(id.width / 2, (2 * j + 1) * id.height / 10);
+      ctx.lineTo(id.width / 2 + id.height / 10, (2 * j + 2) * id.height / 10);
+      ctx.lineTo(id.width / 2, (2 * j + 3) * id.height / 10);
+      ctx.lineTo(id.width / 2 - id.height / 10, (2 * j + 2) * id.height / 10);
+      ctx.fill();
+    }
+    else {
+      ctx.fillStyle = "black";
+      ctx.beginPath();
+      ctx.moveTo(id.width / 2 - id.height * 2.5 / 10, (j + 0.75) * id.height / 5);
+      ctx.lineTo(id.width / 2 + id.height * 3 / 10, (j + 0.75) * id.height / 5);
+      ctx.lineTo(id.width / 2 + id.height * 2.5 / 10, (j + 1.25) * id.height / 5);
+      ctx.lineTo(id.width / 2 - id.height * 3 / 10, (j + 1.25) * id.height / 5);
+      ctx.fill();
+    }
+  }
+}
+</script>
