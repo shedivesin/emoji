@@ -12,7 +12,8 @@ cubic Bezier splines; I did this using a generalization of [this technique][2]
 
 I optimized the SVGs as best I could by hand, and then I fed all the images
 through [ImageOptim][3] in order to ensure they consume as little bandwidth as
-possible.
+possible. You should favor the SVGs if at all possible, since they are about
+a seventh of the size.
 
 This entire repository is licensed under the [CC0-1.0 License][4]: you may do
 whatever you wish with any of these files without restriction.
