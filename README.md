@@ -1,11 +1,11 @@
 # Geomancy Emoji
-This repository contains images of the sixteen geomantic figures, in both PNG
-and SVG format. In both cases, the images are of a white [squircle][1] (that
-is, the superellipse such that `x^4+y^4=r^4`) with the geomantic figure
-superimposed over it in black (for latent lines) and crimson (for active
-lines).
+This repository contains images of the sixteen geomantic figures, in both
+their Western and Arabic variants, in both PNG and SVG format. In all cases,
+the images are of a white [squircle][1] (that is, the superellipse such that
+`x^4+y^4=r^4`) with the geomantic figure superimposed over it in black (and
+crimson, for the Arabic variants).
 
-The PNG versions were the originals, since it's trivial to draw a squircle
+The PNG versions were the originals, since it's easy to draw a squircle
 pixel-by-pixel. To draw the SVGs, one has to approximate the squircle using
 cubic Bezier splines; I did this using a generalization of [this technique][2]
 (using eight arc segments, instead of four).
