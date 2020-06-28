@@ -11,14 +11,15 @@ cubic Bezier splines; I did this using a generalization of [this technique][2]
 (using eight arc segments, instead of four).
 
 I optimized the SVGs as best I could by hand, and then I fed all the images
-through [ImageOptim][3] in order to ensure they consume as little bandwidth as
-possible. You should favor the SVGs if at all possible, since they are about
-a seventh of the size.
+through [svgo][3] and [ImageOptim][4] in order to ensure they consume as little
+bandwidth as possible. You should favor the SVGs if at all possible, since they
+are about an eighth of the size.
 
 This entire repository is licensed under the [CC0-1.0 License][4]: you may do
 whatever you wish with any of these files without restriction.
 
 [1]: http://mathworld.wolfram.com/Squircle.html
 [2]: http://spencermortensen.com/articles/bezier-circle/
-[3]: https://imageoptim.com
-[4]: https://creativecommons.org/publicdomain/zero/1.0/
+[3]: https://github.com/svg/svgo
+[4]: https://imageoptim.com
+[5]: https://creativecommons.org/publicdomain/zero/1.0/
