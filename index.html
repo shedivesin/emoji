@@ -162,24 +162,24 @@ function reload() {
 
   // redraw the svg
   const style = document.getElementById("style").value;
-  let code = "<center><table style=\"background:white;border:6px solid black;border-collapse:collapse\"><tr>";
+  let code = "<center><table><tr>";
   for(let i = 7; i >= 0; i--) {
-    code += "<td style=\"border:3px solid black\"><img style=\"display:block;margin:auto\" src=\"" + PREFIX + style + SUFFIXES[f[i]] + "\" width=\"60\" height=\"60\"/>";
+    code += "<td><img style=\"display:block;margin:auto\" src=\"" + PREFIX + style + SUFFIXES[f[i]] + "\" width=\"60\" height=\"60\"/>";
   }
 
   code += "<tr>";
   for(let i = 11; i >= 8; i--) {
-    code += "<td style=\"border:3px solid black\" colspan=\"2\"><img style=\"display:block;margin:auto\" src=\"" + PREFIX + style + SUFFIXES[f[i]] + "\" width=\"60\" height=\"60\"/>";
+    code += "<td colspan=\"2\"><img style=\"display:block;margin:auto\" src=\"" + PREFIX + style + SUFFIXES[f[i]] + "\" width=\"60\" height=\"60\"/>";
   }
 
   code += "<tr>"
   for(let i = 13; i >= 12; i--) {
-    code += "<td style=\"border:3px solid black\" colspan=\"4\"><img style=\"display:block;margin:auto\" src=\"" + PREFIX + style + SUFFIXES[f[i]] + "\" width=\"60\" height=\"60\"/>";
+    code += "<td colspan=\"4\"><img style=\"display:block;margin:auto\" src=\"" + PREFIX + style + SUFFIXES[f[i]] + "\" width=\"60\" height=\"60\"/>";
   }
 
   code += "<tr>"
   for(let i = 14; i >= 14; i--) {
-    code += "<td style=\"border:3px solid black\" colspan=\"8\"><img style=\"display:block;margin:auto\" src=\"" + PREFIX + style + SUFFIXES[f[i]] + "\" width=\"60\" height=\"60\"/>";
+    code += "<td colspan=\"8\"><img style=\"display:block;margin:auto\" src=\"" + PREFIX + style + SUFFIXES[f[i]] + "\" width=\"60\" height=\"60\"/>";
   }
 
   code += "</table></center>";
