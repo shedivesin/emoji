@@ -2,63 +2,178 @@
 <meta charset=us-ascii>
 <title>Geomancy Emoji</title>
 <style>
-html,body{height:100%;margin:0;padding:0}
-body{display:flex;justify-content:center;align-items:center}
-table{background:repeating-linear-gradient(135deg,#ddd,#ddd 16px,#ccc 16px,#ccc 32px);border-collapse:collapse;margin:32px}
-td{padding:8px}
-tr:first-child>td{padding-top:32px}
-td:last-child{padding-right:32px}
-tr:last-child>td{padding-bottom:32px}
-td:first-child{padding-left:32px}
-img{display:block;width:64px;height:64px}
+td{vertical-align:top}
 </style>
+
+<h1>Geomantic Chart Generator</h1>
+
 <table>
 <tr>
-<td><a href=western/populus.svg><img src=western/populus.svg></a>
-<td><a href=western/laetitia.svg><img src=western/laetitia.svg></a>
-<td><a href=western/rubeus.svg><img src=western/rubeus.svg></a>
-<td><a href=western/fortuna_minor.svg><img src=western/fortuna_minor.svg></a>
+<td><label for=style>Style:</label>
+<td><select id=style>
+<option value=arabic>Arabic</option>
+<option value=western>Western</option>
+</style>
 
 <tr>
-<td><a href=western/albus.svg><img src=western/albus.svg></a>
-<td><a href=western/amissio.svg><img src=western/amissio.svg></a>
-<td><a href=western/conjunctio.svg><img src=western/conjunctio.svg></a>
-<td><a href=western/cauda_draconis.svg><img src=western/cauda_draconis.svg></a>
+<td><label for=m1>First Mother:</label>
+<td><select id=m1>
+<option>Populus</option>
+<option>Laetitia</option>
+<option>Rubeus</option>
+<option>Fortuna Minor</option>
+<option>Albus</option>
+<option>Amissio</option>
+<option>Conjunctio</option>
+<option>Cauda Draconis</option>
+<option>Tristitia</option>
+<option>Carcer</option>
+<option>Acquisitio</option>
+<option>Puer</option>
+<option>Fortuna Major</option>
+<option>Puella</option>
+<option>Caput Draconis</option>
+<option>Via</option>
+</select>
 
 <tr>
-<td><a href=western/tristitia.svg><img src=western/tristitia.svg></a>
-<td><a href=western/carcer.svg><img src=western/carcer.svg></a>
-<td><a href=western/acquisitio.svg><img src=western/acquisitio.svg></a>
-<td><a href=western/puer.svg><img src=western/puer.svg></a>
+<td><label for=m2>Second Mother:</label>
+<td><select id=m2>
+<option>Populus</option>
+<option>Laetitia</option>
+<option>Rubeus</option>
+<option>Fortuna Minor</option>
+<option>Albus</option>
+<option>Amissio</option>
+<option>Conjunctio</option>
+<option>Cauda Draconis</option>
+<option>Tristitia</option>
+<option>Carcer</option>
+<option>Acquisitio</option>
+<option>Puer</option>
+<option>Fortuna Major</option>
+<option>Puella</option>
+<option>Caput Draconis</option>
+<option>Via</option>
+</select>
 
 <tr>
-<td><a href=western/fortuna_major.svg><img src=western/fortuna_major.svg></a>
-<td><a href=western/puella.svg><img src=western/puella.svg></a>
-<td><a href=western/caput_draconis.svg><img src=western/caput_draconis.svg></a>
-<td><a href=western/via.svg><img src=western/via.svg></a>
+<td><label for=m3>Third Mother:</label>
+<td><select id=m3>
+<option>Populus</option>
+<option>Laetitia</option>
+<option>Rubeus</option>
+<option>Fortuna Minor</option>
+<option>Albus</option>
+<option>Amissio</option>
+<option>Conjunctio</option>
+<option>Cauda Draconis</option>
+<option>Tristitia</option>
+<option>Carcer</option>
+<option>Acquisitio</option>
+<option>Puer</option>
+<option>Fortuna Major</option>
+<option>Puella</option>
+<option>Caput Draconis</option>
+<option>Via</option>
+</select>
+
+<tr>
+<td><label for=m4>Fourth Mother:</label>
+<td><select id=m4>
+<option>Populus</option>
+<option>Laetitia</option>
+<option>Rubeus</option>
+<option>Fortuna Minor</option>
+<option>Albus</option>
+<option>Amissio</option>
+<option>Conjunctio</option>
+<option>Cauda Draconis</option>
+<option>Tristitia</option>
+<option>Carcer</option>
+<option>Acquisitio</option>
+<option>Puer</option>
+<option>Fortuna Major</option>
+<option>Puella</option>
+<option>Caput Draconis</option>
+<option>Via</option>
+</select>
+
+<tr>
+<td>Preview
+<td><svg viewBox="0 0 171 87" width="513" height="261"><g stroke="black"><path d="M1 1H170V86H1Z" fill="white" stroke-width="2"/><path d="M1 22.5H170M1 43.5H170M1 64.5H170M22.5 1V22.5M43.5 1V43.5M64.5 1V22.5M85.5 1V64.5M106.5 1V22.5M127.5 1V43.5M148.5 1V22.5" fill="none"/></g><image x="149" y="2" width="20" height="20"/><image x="128" y="2" width="20" height="20"/><image x="107" y="2" width="20" height="20"/><image x="86" y="2" width="20" height="20"/><image x="65" y="2" width="20" height="20"/><image x="44" y="2" width="20" height="20"/><image x="23" y="2" width="20" height="20"/><image x="2" y="2" width="20" height="20"/><image x="138.5" y="23" width="20" height="20"/><image x="96.5" y="23" width="20" height="20"/><image x="54.5" y="23" width="20" height="20"/><image x="12.5" y="23" width="20" height="20"/><image x="117.5" y="44" width="20" height="20"/><image x="33.5" y="44" width="20" height="20"/><image x="75.5" y="65" width="20" height="20"/><image x="149" y="65" width="20" height="20"/></svg>
+
+<tr>
+<td>Dreamwidth Code<br>(Copy and Paste)
+<td><textarea cols=80 rows=20 readOnly></textarea>
 </table>
-<table>
-<tr>
-<td><a href=arabic/populus.svg><img src=arabic/populus.svg></a>
-<td><a href=arabic/laetitia.svg><img src=arabic/laetitia.svg></a>
-<td><a href=arabic/rubeus.svg><img src=arabic/rubeus.svg></a>
-<td><a href=arabic/fortuna_minor.svg><img src=arabic/fortuna_minor.svg></a>
 
-<tr>
-<td><a href=arabic/albus.svg><img src=arabic/albus.svg></a>
-<td><a href=arabic/amissio.svg><img src=arabic/amissio.svg></a>
-<td><a href=arabic/conjunctio.svg><img src=arabic/conjunctio.svg></a>
-<td><a href=arabic/cauda_draconis.svg><img src=arabic/cauda_draconis.svg></a>
+<script>
+"use strict";
+const PREFIX = "https://shedivesin.github.io/emoji/";
+const SUFFIXES = [
+  "/populus.svg",
+  "/laetitia.svg",
+  "/rubeus.svg",
+  "/fortuna_minor.svg",
+  "/albus.svg",
+  "/amissio.svg",
+  "/conjunctio.svg",
+  "/cauda_draconis.svg",
+  "/tristitia.svg",
+  "/carcer.svg",
+  "/acquisitio.svg",
+  "/puer.svg",
+  "/fortuna_major.svg",
+  "/puella.svg",
+  "/caput_draconis.svg",
+  "/via.svg",
+];
 
-<tr>
-<td><a href=arabic/tristitia.svg><img src=arabic/tristitia.svg></a>
-<td><a href=arabic/carcer.svg><img src=arabic/carcer.svg></a>
-<td><a href=arabic/acquisitio.svg><img src=arabic/acquisitio.svg></a>
-<td><a href=arabic/puer.svg><img src=arabic/puer.svg></a>
+function reload() {
+  // mothers
+  const f = [
+    document.getElementById("m1").selectedIndex,
+    document.getElementById("m2").selectedIndex,
+    document.getElementById("m3").selectedIndex,
+    document.getElementById("m4").selectedIndex,
+  ];
 
-<tr>
-<td><a href=arabic/fortuna_major.svg><img src=arabic/fortuna_major.svg></a>
-<td><a href=arabic/puella.svg><img src=arabic/puella.svg></a>
-<td><a href=arabic/caput_draconis.svg><img src=arabic/caput_draconis.svg></a>
-<td><a href=arabic/via.svg><img src=arabic/via.svg></a>
-</table>
+  // daughters
+  f.push(
+    (f[0] & 1) | ((f[1] & 1) << 1) | ((f[2] & 1) << 2) | ((f[3] & 1) << 3),
+    ((f[0] & 2) >> 1) | (f[1] & 2) | ((f[2] & 2) << 1) | ((f[3] & 2) << 2),
+    ((f[0] & 4) >> 2) | ((f[1] & 4) >> 1) | (f[2] & 4) | ((f[3] & 4) << 1),
+    ((f[0] & 8) >> 3) | ((f[1] & 8) >> 2) | ((f[2] & 8) >> 1) | (f[3] & 8),
+  );
+
+  // nieces & court
+  for(let i = 0; i < 14; f.push(f[i++] ^ f[i++]));
+
+  // reconciler
+  f.push(f[0] ^ f[14]);
+
+  // redraw the svg
+  const images = document.getElementsByTagName("image");
+  const style = document.getElementById("style").value;
+  for(let i = 0; i < 16; i++) {
+    images[i].setAttribute("href", PREFIX + style + SUFFIXES[f[i]]);
+  }
+
+  // rewrite the copy-paste
+  const svg = document.getElementsByTagName("svg")[0];
+  const textarea = document.getElementsByTagName("textarea")[0];
+  textarea.value = "<center>" + svg.outerHTML + "</center>";
+
+  // select the copy-paste so it's easy to, y'know, copy-paste
+  textarea.select();
+}
+
+// trigger a reload whenever the form is changed
+for(const el of document.getElementsByTagName("select")) {
+  el.addEventListener("input", reload);
+}
+
+// reload immediately
+reload();
+</script>
