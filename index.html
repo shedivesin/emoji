@@ -9,18 +9,18 @@ td{vertical-align:top}
 
 <table>
 <tr>
-<td><label for=type>Type:</label>
-<td><select id=type>
-<option value=shield>Shield</option>
-<option value=house disabled>House</option>
-</style>
-
-<tr>
 <td><label for=style>Style:</label>
 <td><select id=style>
 <option value=arabic>Arabic</option>
 <option value=western>Western</option>
-</style>
+</select>
+
+<tr>
+<td><label for=type>Type:</label>
+<td><select id=type>
+<option value=shield>Shield</option>
+<option value=house>House</option>
+</select>
 
 <tr>
 <td><label for=m1>First Mother:</label>
@@ -107,90 +107,37 @@ td{vertical-align:top}
 </select>
 
 <tr>
-<td>Preview
-<td id=preview>
+<td>Preview:
+<td><img id=preview>
 
 <tr>
-<td>Dreamwidth Code<br>(Copy and Paste)
-<td><textarea id=copypaste cols=80 rows=20 readOnly></textarea>
+<td>Dreamwidth Code:<br>(Copy and Paste)
+<td><textarea id=copypaste cols=100 rows=3 readOnly></textarea>
 </table>
-
+<p>v2 (5 Jul 2020)</p>
 <script>
 "use strict";
-const PREFIX = "https://shedivesin.github.io/emoji/";
-const SUFFIXES = [
-  "/populus.svg",
-  "/laetitia.svg",
-  "/rubeus.svg",
-  "/fortuna_minor.svg",
-  "/albus.svg",
-  "/amissio.svg",
-  "/conjunctio.svg",
-  "/cauda_draconis.svg",
-  "/tristitia.svg",
-  "/carcer.svg",
-  "/acquisitio.svg",
-  "/puer.svg",
-  "/fortuna_major.svg",
-  "/puella.svg",
-  "/caput_draconis.svg",
-  "/via.svg",
-];
 
 function reload() {
-  // mothers
-  const f = [
-    document.getElementById("m1").selectedIndex,
-    document.getElementById("m2").selectedIndex,
-    document.getElementById("m3").selectedIndex,
-    document.getElementById("m4").selectedIndex,
-  ];
-
-  // daughters
-  f.push(
-    (f[0] & 1) | ((f[1] & 1) << 1) | ((f[2] & 1) << 2) | ((f[3] & 1) << 3),
-    ((f[0] & 2) >> 1) | (f[1] & 2) | ((f[2] & 2) << 1) | ((f[3] & 2) << 2),
-    ((f[0] & 4) >> 2) | ((f[1] & 4) >> 1) | (f[2] & 4) | ((f[3] & 4) << 1),
-    ((f[0] & 8) >> 3) | ((f[1] & 8) >> 2) | ((f[2] & 8) >> 1) | (f[3] & 8),
-  );
-
-  // nieces & court
-  for(let i = 0; i < 14; f.push(f[i++] ^ f[i++]));
-
-  // reconciler
-  f.push(f[0] ^ f[14]);
-
-  // redraw the svg
+  // grab the form values
+  const type = document.getElementById("type").value;
+  const m1 = document.getElementById("m1").selectedIndex.toString(16);
+  const m2 = document.getElementById("m2").selectedIndex.toString(16);
+  const m3 = document.getElementById("m3").selectedIndex.toString(16);
+  const m4 = document.getElementById("m4").selectedIndex.toString(16);
   const style = document.getElementById("style").value;
-  let code = "<center><table><tr>";
-  for(let i = 7; i >= 0; i--) {
-    code += "<td><img style=\"display:block;margin:auto\" src=\"" + PREFIX + style + SUFFIXES[f[i]] + "\" width=\"60\" height=\"60\"/>";
-  }
-
-  code += "<tr>";
-  for(let i = 11; i >= 8; i--) {
-    code += "<td colspan=\"2\"><img style=\"display:block;margin:auto\" src=\"" + PREFIX + style + SUFFIXES[f[i]] + "\" width=\"60\" height=\"60\"/>";
-  }
-
-  code += "<tr>"
-  for(let i = 13; i >= 12; i--) {
-    code += "<td colspan=\"4\"><img style=\"display:block;margin:auto\" src=\"" + PREFIX + style + SUFFIXES[f[i]] + "\" width=\"60\" height=\"60\"/>";
-  }
-
-  code += "<tr>"
-  for(let i = 14; i >= 14; i--) {
-    code += "<td colspan=\"8\"><img style=\"display:block;margin:auto\" src=\"" + PREFIX + style + SUFFIXES[f[i]] + "\" width=\"60\" height=\"60\"/>";
-  }
-
-  code += "</table></center>";
+  const width = (type === "shield")? 163*2: 123*2;
+  const height = (type === "shield")? 83*2: 123*2;
 
   // rewrite the preview
   const preview = document.getElementById("preview");
-  preview.innerHTML = code;
+  preview.width = width;
+  preview.height = height;
+  preview.src = `${style}/${type}/${m1}${m2}/${m3}${m4}.svg`;
 
   // rewrite the copy-paste area
   const copypaste = document.getElementById("copypaste");
-  copypaste.value = code;
+  copypaste.value = `<center><img src="https://shedivesin.github.io/emoji/${style}/${type}/${m1}${m2}/${m3}${m4}.svg" width="${width}" height="${height}"></center>`;
   copypaste.select();
 }
 

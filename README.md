@@ -1,19 +1,31 @@
-# Geomancy Emoji
-This repository contains images of the sixteen geomantic figures, in both
-their Western and Arabic variants, in both PNG and SVG format. In all cases,
-the images are of a white [squircle][1] (that is, the superellipse such that
-`x^4+y^4=r^4`) with the geomantic figure superimposed over it in black (and
-crimson, for the Arabic variants).
+# Geomancy Images
+This repository contains:
 
-The PNG versions were the originals, since it's easy to draw a squircle
-pixel-by-pixel. To draw the SVGs, one has to approximate the squircle using
-cubic Bezier splines; I did this using a generalization of [this technique][2]
-(using eight arc segments, instead of four).
+1.  Emoji-like icons of the sixteen geomantic figures, in both their Western
+    and Arabic stylistic variants, in both PNG and SVG format. (These are
+    images of a white [squircle][1] (that is, the shape described by the
+    equation `x^4+y^4=r^4`) with a geomantic figure superimposed over it in
+    black and crimson.)
 
-I optimized the SVGs as best I could by hand, and then I fed all the images
-through [svgo][3] and [ImageOptim][4] in order to ensure they consume as little
-bandwidth as possible. You should favor the SVGs if at all possible, since they
-are about an eighth of the size.
+    The PNG versions came first, since it's very easy to draw a squircle
+    pixel-by-pixel. To draw the SVGs, one has to approximate the squircle using
+    cubic Bezier splines; I did this using a generalization of [this
+    technique][2] (using eight arc segments, instead of four).
+
+2.  Images of every possible shield and house chart, using both stylistic
+    variants of the geomantic figures. (There are 65,536 possible charts, times
+    two for chart type and times two for style, making 262,144 images in all.)
+    These are only available in SVG format for reasons of size.
+
+3.  A generator script to make it easy to get the HTML code necessary to
+    display a given chart.
+
+The images are really quite tiny. I optimized the SVGs as best I could by
+hand (by using various tricks, like combining paths together), and then I fed
+all the SVGs through [svgo][3] and all the PNGs through [ImageOptim][4] in
+order to ensure they consume as little bandwidth as possible. The SVGs should
+be preferred over the PNGs if possible, since they are about an eighth of the
+size.
 
 This entire repository is licensed under the [CC0-1.0 License][4]: you may do
 whatever you wish with any of these files without restriction.
