@@ -111,14 +111,10 @@ td{vertical-align:top}
 <td><img id=preview>
 
 <tr>
-<td>Dreamwidth Image URL:<br>(Copy and Paste)
-<td><textarea id=dwurl cols=100 rows=2 readOnly onclick="this.select()"></textarea>
-
-<tr>
-<td>Dreamwidth Raw HTML:<br>(Copy and Paste)
-<td><textarea id=dwhtml cols=100 rows=2 readOnly onclick="this.select()"></textarea>
+<td>Image URL:<br>(Copy and Paste)
+<td><textarea id=copypaste cols=100 rows=2 readOnly></textarea>
 </table>
-<p>v3 (9 Jul 2020)</p>
+<p>v4 (9 Jul 2020)</p>
 <script>
 "use strict";
 
@@ -130,24 +126,20 @@ function reload() {
   const m3 = document.getElementById("m3").selectedIndex.toString(16);
   const m4 = document.getElementById("m4").selectedIndex.toString(16);
   const style = document.getElementById("style").value;
-  const width = (type === "shield")? 163*2: 123*2;
-  const height = (type === "shield")? 83*2: 123*2;
   const path = `${style}/${type}/${m1}${m2}/${m3}${m4}.svg`;
-  const url = "https://shedivesin.github.io/emoji/" + path;
 
   // rewrite the preview
   const preview = document.getElementById("preview");
-  preview.width = width;
-  preview.height = height;
   preview.src = path;
+  switch(type) {
+    case "shield": preview.width = 326; preview.height = 166; break;
+    case "house": preview.width = preview.height = 246; break;
+  }
 
   // rewrite the Dreamwidth image URL
-  const dwurl = document.getElementById("dwurl");
-  dwurl.value = url;
-
-  // rewrite the Dreamwidth raw HTML
-  const dwhtml = document.getElementById("dwhtml");
-  dwhtml.value = `<center><img src="${url}" width="${width}" height="${height}"></center>`;
+  const copypaste = document.getElementById("copypaste");
+  copypaste.value = "https://shedivesin.github.io/emoji/" + path;
+  copypaste.select();
 }
 
 // trigger a reload whenever the form is changed
