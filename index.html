@@ -111,10 +111,14 @@ td{vertical-align:top}
 <td><img id=preview>
 
 <tr>
-<td>Dreamwidth Code:<br>(Copy and Paste)
-<td><textarea id=copypaste cols=100 rows=3 readOnly></textarea>
+<td>Dreamwidth Image URL:<br>(Copy and Paste)
+<td><textarea id=dwurl cols=100 rows=2 readOnly onclick="this.select()"></textarea>
+
+<tr>
+<td>Dreamwidth Raw HTML:<br>(Copy and Paste)
+<td><textarea id=dwhtml cols=100 rows=2 readOnly onclick="this.select()"></textarea>
 </table>
-<p>v2 (5 Jul 2020)</p>
+<p>v3 (9 Jul 2020)</p>
 <script>
 "use strict";
 
@@ -128,17 +132,22 @@ function reload() {
   const style = document.getElementById("style").value;
   const width = (type === "shield")? 163*2: 123*2;
   const height = (type === "shield")? 83*2: 123*2;
+  const path = `${style}/${type}/${m1}${m2}/${m3}${m4}.svg`;
+  const url = "https://shedivesin.github.io/emoji/" + path;
 
   // rewrite the preview
   const preview = document.getElementById("preview");
   preview.width = width;
   preview.height = height;
-  preview.src = `${style}/${type}/${m1}${m2}/${m3}${m4}.svg`;
+  preview.src = path;
 
-  // rewrite the copy-paste area
-  const copypaste = document.getElementById("copypaste");
-  copypaste.value = `<center><img src="https://shedivesin.github.io/emoji/${style}/${type}/${m1}${m2}/${m3}${m4}.svg" width="${width}" height="${height}"></center>`;
-  copypaste.select();
+  // rewrite the Dreamwidth image URL
+  const dwurl = document.getElementById("dwurl");
+  dwurl.value = url;
+
+  // rewrite the Dreamwidth raw HTML
+  const dwhtml = document.getElementById("dwhtml");
+  dwhtml.value = `<center><img src="${url}" width="${width}" height="${height}"></center>`;
 }
 
 // trigger a reload whenever the form is changed
