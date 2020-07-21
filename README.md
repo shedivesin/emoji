@@ -1,15 +1,21 @@
 # Geomancy Images
 This repository contains:
 
-1.  Emoji-like icons of the sixteen geomantic figures, in both their Western
-    and Arabic stylistic variants, in both PNG and SVG format. (These are
-    images of a white [squircle][1] (that is, the shape described by the
-    equation `x^4+y^4=r^4`) with a geomantic figure superimposed over it in
-    black and crimson.)
+1.  Emoji-like icons of the sixteen geomantic figures, in both PNG and SVG
+    format, in three variants:
+
+    *   `western`, following European Renaissance practice.
+    *   `arabic`, following Arabic practice.
+    *   `cgd`, following [Celtic Golden Dawn][6] practice. (These were made
+        following a design by [@tumeric][7] at [@conjunctio][8].)
+
+    Each of these are images of a white [squircle][1] (that is, the shape
+    described by the equation `x^4+y^4=r^4`) with the appropriate geomantic
+    figure superimposed over it.
 
     The PNG versions came first, since it's very easy to draw a squircle
-    pixel-by-pixel. To draw the SVGs, one has to approximate the squircle using
-    cubic Bezier splines; I did this using a generalization of [this
+    pixel-by-pixel. To draw the SVGs, one has to approximate the squircle
+    using cubic Bezier splines; I did this using a generalization of [this
     technique][2] (using eight arc segments, instead of four).
 
 2.  Images of every possible shield and house chart, using both stylistic
@@ -35,3 +41,6 @@ whatever you wish with any of these files without restriction.
 [3]: https://github.com/svg/svgo
 [4]: https://imageoptim.com
 [5]: https://creativecommons.org/publicdomain/zero/1.0/
+[6]: http://www.druidical-gd.org
+[7]: https://tumeric.dreamwidth.org
+[8]: https://conjunctio.dreamwidth.org
