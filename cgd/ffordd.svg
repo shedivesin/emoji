@@ -1,6 +1,1 @@
-<svg viewBox="0 0 170 170" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="85" cy="31" r="14" fill="#f77"/>
-  <circle cx="85" cy="67" r="14" fill="#fd4"/>
-  <circle cx="85" cy="103" r="14" fill="#7ae"/>
-  <circle cx="85" cy="139" r="14" fill="#ac5"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340" width="256" height="256"><path d="M170 0c75 0 116 0 143 27s27 68 27 143 0 116-27 143-68 27-143 27-116 0-143-27S0 245 0 170 0 54 27 27 95 0 170 0" fill="#fff"/><circle cx="170" cy="62" r="28" fill="#f77"/><circle cx="170" cy="134" r="28" fill="#fd4"/><circle cx="170" cy="206" r="28" fill="#7ae"/><circle cx="170" cy="278" r="28" fill="#ac5"/></svg>
