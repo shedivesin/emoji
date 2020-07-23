@@ -1,9 +1,7 @@
 <!doctype html>
-<meta charset=us-ascii>
+<meta charset=utf-8>
 <title>Geomantic Chart Generator</title>
-<style>
-td{vertical-align:top}
-</style>
+<style>td{vertical-align:top}</style>
 
 <h1>Geomantic Chart Generator</h1>
 
@@ -13,97 +11,50 @@ td{vertical-align:top}
 <td><select id=style>
 <option value=arabic>Arabic</option>
 <option value=western>Western</option>
+<option value=cgd>Celtic Golden Dawn</option>
 </select>
 
 <tr>
 <td><label for=type>Type:</label>
 <td><select id=type>
 <option value=shield>Shield</option>
-<option value=house>House</option>
+<option value=house id=house>House</option>
 </select>
 
 <tr>
 <td><label for=m1>First Mother:</label>
 <td><select id=m1>
-<option>Populus</option>
-<option>Laetitia</option>
-<option>Rubeus</option>
-<option>Fortuna Minor</option>
-<option>Albus</option>
-<option>Amissio</option>
-<option>Conjunctio</option>
-<option>Cauda Draconis</option>
-<option>Tristitia</option>
-<option>Carcer</option>
-<option>Acquisitio</option>
-<option>Puer</option>
-<option>Fortuna Major</option>
-<option>Puella</option>
-<option>Caput Draconis</option>
-<option>Via</option>
+<option><option><option><option>
+<option><option><option><option>
+<option><option><option><option>
+<option><option><option><option>
 </select>
 
 <tr>
 <td><label for=m2>Second Mother:</label>
 <td><select id=m2>
-<option>Populus</option>
-<option>Laetitia</option>
-<option>Rubeus</option>
-<option>Fortuna Minor</option>
-<option>Albus</option>
-<option>Amissio</option>
-<option>Conjunctio</option>
-<option>Cauda Draconis</option>
-<option>Tristitia</option>
-<option>Carcer</option>
-<option>Acquisitio</option>
-<option>Puer</option>
-<option>Fortuna Major</option>
-<option>Puella</option>
-<option>Caput Draconis</option>
-<option>Via</option>
+<option><option><option><option>
+<option><option><option><option>
+<option><option><option><option>
+<option><option><option><option>
 </select>
 
 <tr>
 <td><label for=m3>Third Mother:</label>
 <td><select id=m3>
-<option>Populus</option>
-<option>Laetitia</option>
-<option>Rubeus</option>
-<option>Fortuna Minor</option>
-<option>Albus</option>
-<option>Amissio</option>
-<option>Conjunctio</option>
-<option>Cauda Draconis</option>
-<option>Tristitia</option>
-<option>Carcer</option>
-<option>Acquisitio</option>
-<option>Puer</option>
-<option>Fortuna Major</option>
-<option>Puella</option>
-<option>Caput Draconis</option>
-<option>Via</option>
+<option><option><option><option>
+<option><option><option><option>
+<option><option><option><option>
+<option><option><option><option>
 </select>
 
 <tr>
 <td><label for=m4>Fourth Mother:</label>
 <td><select id=m4>
-<option>Populus</option>
-<option>Laetitia</option>
-<option>Rubeus</option>
-<option>Fortuna Minor</option>
-<option>Albus</option>
-<option>Amissio</option>
-<option>Conjunctio</option>
-<option>Cauda Draconis</option>
-<option>Tristitia</option>
-<option>Carcer</option>
-<option>Acquisitio</option>
-<option>Puer</option>
-<option>Fortuna Major</option>
-<option>Puella</option>
-<option>Caput Draconis</option>
-<option>Via</option>
+<option><option><option><option>
+<option><option><option><option>
+<option><option><option><option>
+<option><option><option><option>
 </select>
 
 <tr>
@@ -114,39 +65,81 @@ td{vertical-align:top}
 <td>Image URL:<br>(Copy and Paste)
 <td><textarea id=copypaste cols=100 rows=2 readOnly></textarea>
 </table>
-<p>v4 (9 Jul 2020)</p>
+<p>v5 (23 Jul 2020)</p>
 <script>
 "use strict";
 
 function reload() {
-  // grab the form values
+  // find the image path
+  const style = document.getElementById("style").value;
   const type = document.getElementById("type").value;
   const m1 = document.getElementById("m1").selectedIndex.toString(16);
   const m2 = document.getElementById("m2").selectedIndex.toString(16);
   const m3 = document.getElementById("m3").selectedIndex.toString(16);
   const m4 = document.getElementById("m4").selectedIndex.toString(16);
-  const style = document.getElementById("style").value;
   const path = `${style}/${type}/${m1}${m2}/${m3}${m4}.svg`;
 
   // rewrite the preview
   const preview = document.getElementById("preview");
   preview.src = path;
-  switch(type) {
+  switch(type.value) {
     case "shield": preview.width = 326; preview.height = 166; break;
     case "house": preview.width = preview.height = 246; break;
   }
 
-  // rewrite the Dreamwidth image URL
+  // rewrite the Dreamwidth URL
   const copypaste = document.getElementById("copypaste");
   copypaste.value = "https://shedivesin.github.io/emoji/" + path;
   copypaste.select();
 }
 
-// trigger a reload whenever the form is changed
-for(const el of document.getElementsByTagName("select")) {
+const FIGURES = [
+  "Populus", "Laetitia", "Rubeus", "Fortuna Minor",
+  "Albus", "Amissio", "Conjunctio", "Cauda Draconis",
+  "Tristitia", "Carcer", "Acquisitio", "Puer",
+  "Fortuna Major", "Puella", "Caput Draconis", "Via",
+
+  "Pobl", "Llawenydd", "Coch", "Bendith Fach",
+  "Gwyn", "Colled", "Cyswllt", "Llosgwrn Y Ddraig",
+  "Tristwch", "Carchar", "Elw", "Mab",
+  "Bendith Fawr", "Merch", "Pen Y Ddraig", "Ffordd",
+];
+function reloadStyle() {
+  const is_cgd = document.getElementById("style").value === "cgd";
+
+  // if CGD, force shield charts
+  if(is_cgd) { document.getElementById("type").value = "shield"; }
+
+  // if CGD, disable the ability to switch to house charts
+  document.getElementById("house").disabled = is_cgd;
+
+  // rename to/from Latin (default) vs. Welsh (CGD) figure names
+  const name_offset = is_cgd * 16;
+  const m1 = document.getElementById("m1").getElementsByTagName("option");
+  const m2 = document.getElementById("m2").getElementsByTagName("option");
+  const m3 = document.getElementById("m3").getElementsByTagName("option");
+  const m4 = document.getElementById("m4").getElementsByTagName("option");
+  for(let i = 0; i < 16; i++) {
+    m1[i].innerText = m2[i].innerText = m3[i].innerText = m4[i].innerText = FIGURES[name_offset + i];
+  }
+
+  reload();
+}
+
+// if we change the style, use the complicated style reload
+document.getElementById("style").addEventListener("input", reloadStyle);
+
+// if we change anything else, use the simpler reload
+for(const el of [
+  document.getElementById("type"),
+  document.getElementById("m1"),
+  document.getElementById("m2"),
+  document.getElementById("m3"),
+  document.getElementById("m4"),
+]) {
   el.addEventListener("input", reload);
 }
 
 // reload immediately
-reload();
+reloadStyle();
 </script>
