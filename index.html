@@ -24,75 +24,51 @@
 <tr>
 <td><label for=m1>First Mother:</label>
 <td><select id=m1>
-<option><option><option><option>
-<option><option><option><option>
-<option><option><option><option>
-<option><option><option><option>
+<option>Populus<option>Laetitia<option>Rubeus<option>Fortuna Minor
+<option>Albus<option>Amissio<option>Conjunctio<option>Cauda Draconis
+<option>Tristitia<option>Carcer<option>Acquisitio<option>Puer
+<option>Fortuna Major<option>Puella<option>Caput Draconis<option>Via
 </select>
 
 <tr>
 <td><label for=m2>Second Mother:</label>
 <td><select id=m2>
-<option><option><option><option>
-<option><option><option><option>
-<option><option><option><option>
-<option><option><option><option>
+<option>Populus<option>Laetitia<option>Rubeus<option>Fortuna Minor
+<option>Albus<option>Amissio<option>Conjunctio<option>Cauda Draconis
+<option>Tristitia<option>Carcer<option>Acquisitio<option>Puer
+<option>Fortuna Major<option>Puella<option>Caput Draconis<option>Via
 </select>
 
 <tr>
 <td><label for=m3>Third Mother:</label>
 <td><select id=m3>
-<option><option><option><option>
-<option><option><option><option>
-<option><option><option><option>
-<option><option><option><option>
+<option>Populus<option>Laetitia<option>Rubeus<option>Fortuna Minor
+<option>Albus<option>Amissio<option>Conjunctio<option>Cauda Draconis
+<option>Tristitia<option>Carcer<option>Acquisitio<option>Puer
+<option>Fortuna Major<option>Puella<option>Caput Draconis<option>Via
 </select>
 
 <tr>
 <td><label for=m4>Fourth Mother:</label>
 <td><select id=m4>
-<option><option><option><option>
-<option><option><option><option>
-<option><option><option><option>
-<option><option><option><option>
+<option>Populus<option>Laetitia<option>Rubeus<option>Fortuna Minor
+<option>Albus<option>Amissio<option>Conjunctio<option>Cauda Draconis
+<option>Tristitia<option>Carcer<option>Acquisitio<option>Puer
+<option>Fortuna Major<option>Puella<option>Caput Draconis<option>Via
 </select>
 
 <tr>
 <td>Preview:
-<td><img id=preview>
+<td><img id=preview width=326 height=166 src=arabic/shield/00/00.svg>
 
 <tr>
 <td>Image URL:<br>(Copy and Paste)
-<td><textarea id=copypaste cols=100 rows=2 readOnly></textarea>
+<td><textarea id=copypaste cols=100 rows=2 readOnly>https://shedivesin.github.io/emoji/arabic/shield/00/00.svg</textarea>
 </table>
-<p>v6 (25 Jul 2020)</p>
+
+<p>v7 (25 Jul 2020)</p>
 <script>
 "use strict";
-
-function reload() {
-  // find the image path
-  const style = document.getElementById("style").value;
-  const type = document.getElementById("type").value;
-  const m1 = document.getElementById("m1").selectedIndex.toString(16);
-  const m2 = document.getElementById("m2").selectedIndex.toString(16);
-  const m3 = document.getElementById("m3").selectedIndex.toString(16);
-  const m4 = document.getElementById("m4").selectedIndex.toString(16);
-  const path = `${style}/${type}/${m1}${m2}/${m3}${m4}.svg`;
-
-  // rewrite the preview
-  const preview = document.getElementById("preview");
-  preview.src = path;
-  switch(type.value) {
-    case "shield": preview.width = 326; preview.height = 166; break;
-    case "house": preview.width = preview.height = 246; break;
-  }
-
-  // rewrite the Dreamwidth URL
-  const copypaste = document.getElementById("copypaste");
-  copypaste.value = "https://shedivesin.github.io/emoji/" + path;
-  copypaste.select();
-}
-
 const FIGURES = [
   "Populus", "Laetitia", "Rubeus", "Fortuna Minor",
   "Albus", "Amissio", "Conjunctio", "Cauda Draconis",
@@ -104,42 +80,80 @@ const FIGURES = [
   "Tristwch", "Carchar", "Elw", "Mab",
   "Bendith Fawr", "Merch", "Pen Y Ddraig", "Ffordd",
 ];
+let STYLE = "arabic";
+let TYPE = "shield";
+
+function reload() {
+  // build the image path
+  const m1 = document.getElementById("m1").selectedIndex.toString(16);
+  const m2 = document.getElementById("m2").selectedIndex.toString(16);
+  const m3 = document.getElementById("m3").selectedIndex.toString(16);
+  const m4 = document.getElementById("m4").selectedIndex.toString(16);
+  const path = `${STYLE}/${TYPE}/${m1}${m2}/${m3}${m4}.svg`;
+
+  // rewrite the preview
+  document.getElementById("preview").src = path;
+
+  // rewrite the Dreamwidth URL
+  const copypaste = document.getElementById("copypaste");
+  copypaste.value = "https://shedivesin.github.io/emoji/" + path;
+  copypaste.select();
+}
+
 function reloadStyle() {
-  const is_cgd = document.getElementById("style").value === "cgd";
+  const was_cgd = STYLE === "cgd";
 
-  // if CGD, force shield charts
-  if(is_cgd) { document.getElementById("type").value = "shield"; }
+  STYLE = document.getElementById("style").value;
+  const is_cgd = STYLE === "cgd";
 
-  // if CGD, disable the ability to switch to house charts
-  document.getElementById("house").disabled = is_cgd;
+  // if the style was changed to or from CGD, then we need to update the form
+  if(was_cgd !== is_cgd) {
+    // if CGD, force shield charts
+    if(is_cgd && TYPE !== "shield") {
+      TYPE = "shield";
 
-  // rename to/from Latin (default) vs. Welsh (CGD) figure names
-  const name_offset = is_cgd * 16;
-  const m1 = document.getElementById("m1").getElementsByTagName("option");
-  const m2 = document.getElementById("m2").getElementsByTagName("option");
-  const m3 = document.getElementById("m3").getElementsByTagName("option");
-  const m4 = document.getElementById("m4").getElementsByTagName("option");
-  for(let i = 0; i < 16; i++) {
-    m1[i].innerText = m2[i].innerText = m3[i].innerText = m4[i].innerText = FIGURES[name_offset + i];
+      document.getElementById("type").value = "shield";
+
+      // update the image dimensions
+      const preview = document.getElementById("preview");
+      preview.width = 326;
+      preview.height = 166;
+    }
+
+    // if CGD, disable the ability to switch to house charts
+    document.getElementById("house").disabled = is_cgd;
+
+    // rename to/from Latin (default) vs. Welsh (CGD) figure names
+    const m1 = document.getElementById("m1").getElementsByTagName("option");
+    const m2 = document.getElementById("m2").getElementsByTagName("option");
+    const m3 = document.getElementById("m3").getElementsByTagName("option");
+    const m4 = document.getElementById("m4").getElementsByTagName("option");
+    const name_offset = is_cgd * 16;
+    for(let i = 0; i < 16; i++) {
+      m1[i].innerText = m2[i].innerText = m3[i].innerText = m4[i].innerText = FIGURES[name_offset + i];
+    }
   }
 
   reload();
 }
 
-// if we change the style, use the complicated style reload
-document.getElementById("style").addEventListener("input", reloadStyle);
+function reloadType() {
+  TYPE = document.getElementById("type").value;
 
-// if we change anything else, use the simpler reload
-for(const el of [
-  document.getElementById("type"),
-  document.getElementById("m1"),
-  document.getElementById("m2"),
-  document.getElementById("m3"),
-  document.getElementById("m4"),
-]) {
-  el.addEventListener("input", reload);
+  // update the image dimensions
+  const preview = document.getElementById("preview");
+  switch(TYPE) {
+    case "shield": preview.width = 326; preview.height = 166; break;
+    case "house": preview.width = preview.height = 246; break;
+  }
+
+  reload();
 }
 
-// reload immediately
-reloadStyle();
+document.getElementById("style").addEventListener("input", reloadStyle);
+document.getElementById("type").addEventListener("input", reloadType);
+document.getElementById("m1").addEventListener("input", reload);
+document.getElementById("m2").addEventListener("input", reload);
+document.getElementById("m3").addEventListener("input", reload);
+document.getElementById("m4").addEventListener("input", reload);
 </script>
