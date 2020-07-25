@@ -20,10 +20,11 @@ This repository contains:
 
 2.  Images of every possible shield and house chart, using both stylistic
     variants of the geomantic figures. (There are 65,536 possible charts, times
-    two for chart type and times two for style, making 262,144 images in all.)
-    These are only available in SVG format for reasons of size.
+    five chart types and styles (Western shield, Western house, Arabic shield,
+    Arabic house, and CGD shield), making 327,680 images in all.) These are
+    only available in SVG format for reasons of size.
 
-3.  A generator script to make it easy to get the HTML code necessary to
+3.  A generator webpage to make it easy to get the image URL necessary to
     display a given chart.
 
 The images are really quite tiny. I optimized the SVGs as best I could by
