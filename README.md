@@ -34,7 +34,7 @@ order to ensure they consume as little bandwidth as possible. The SVGs should
 be preferred over the PNGs if possible, since they are about an eighth of the
 size.
 
-This entire repository is licensed under the [CC0-1.0 License][4]: you may do
+This entire repository is licensed under the [CC0-1.0 License][5]: you may do
 whatever you wish with any of these files without restriction.
 
 [1]: http://mathworld.wolfram.com/Squircle.html
