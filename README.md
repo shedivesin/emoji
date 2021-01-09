@@ -2,12 +2,10 @@
 This repository contains:
 
 1.  Emoji-like icons of the sixteen geomantic figures, in both PNG and SVG
-    format, in three variants:
+    format, in two variants:
 
     *   `western`, following European Renaissance practice.
     *   `arabic`, following Arabic practice.
-    *   `cgd`, following [Celtic Golden Dawn][6] practice. (These were made
-        following a design by [@tumeric][7] at [@conjunctio][8].)
 
     Each of these are images of a white [squircle][1] (that is, the shape
     described by the equation `x^4+y^4=r^4`) with the appropriate geomantic
@@ -15,14 +13,20 @@ This repository contains:
 
     The PNG versions came first, since it's very easy to draw a squircle
     pixel-by-pixel. To draw the SVGs, one has to approximate the squircle
-    using cubic Bezier splines; I did this using a generalization of [this
+    using cubic Bézier splines; I did this using a generalization of [this
     technique][2] (using eight arc segments, instead of four).
 
-2.  Images of every possible shield and house chart, using both stylistic
-    variants of the geomantic figures. (There are 65,536 possible charts, times
-    five chart types and styles (Western shield, Western house, Arabic shield,
-    Arabic house, and CGD shield), making 327,680 images in all.) These are
-    only available in SVG format for reasons of size.
+2.  Images of every possible shield and house chart using both of the above
+    stylistic variants, plus on additional variant:
+
+    *   `cgd`, following [Celtic Golden Dawn][6] practice. (These were made
+        following a design by [@tumeric][7] at [@conjunctio][8]. As the CGD
+        only uses shield charts, house charts are not available for this
+        variant.)
+
+    There are 16×16×16×16=65,536 possible charts; in five styles, this makes
+    for 327,680 images in all. These are only available in SVG format for
+    reasons of size.
 
 3.  A generator webpage to make it easy to get the image URL necessary to
     display a given chart.
